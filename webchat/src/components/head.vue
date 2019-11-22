@@ -1,10 +1,10 @@
 <template>
     <div class="wc-head">
         <el-row>
-            <el-col :span="8" class="wc-row">
+            <el-col :span="4" class="wc-row">
                 <img src="../assets/logo.png"/>
             </el-col>
-            <el-col :span="8">
+            <el-col :span="16">
                 <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#171F26" text-color="#fff" active-text-color="#ffd04b" @select="test">
                     <el-menu-item index="1">首页</el-menu-item>
                     <el-submenu index="2">
@@ -30,6 +30,10 @@
 <script>
 export default {
     name: 'wc_head',
+    serviceUrl:{
+        API_LOGIN:'/login?account={account}&pwd={pwd}',
+        API_REGISTER:'/register'
+    },
     data(){
         return{
             activeIndex:'1',
@@ -53,14 +57,16 @@ export default {
                 });
             })
         },
-        test:function(){
+        test:function(index){
             this.$message({
-                    message:"hello",
+                    message:"hello"+"--"+index,
                     type:'success'
                 });
         },
         register:function(){
-
+            let _this=this;
+            let url=this.HOST+this.$serviceUrl.API_REGISTER;
+            this.axios.post(url,this.registerInfo)
         }
     }
 }
