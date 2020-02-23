@@ -8,7 +8,7 @@
 
   > 框架流程图
 
-  ![crawler.png](https://github.com/Jerry-bg/simple-crawler/image/crawler.png)
+  ![crawler.png](https://github.com/Jerry-bg/simple-crawler/tree/master/image/crawler.png)
 
   > 架包功能
 
