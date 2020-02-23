@@ -1,7 +1,5 @@
 package com.kons.utils;
 
-import com.kons.HeroInfo;
-
 import java.util.List;
 
 public class JsonModel {

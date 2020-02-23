@@ -1,4 +1,4 @@
-package com.kons;
+package com.kons.utils;
 
 import java.io.Serializable;
 

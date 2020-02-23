@@ -1,16 +1,14 @@
 package com.kons.response;
 
-import com.kons.utils.ProcessorType;
-
 import java.io.ByteArrayInputStream;
 import java.util.List;
 import java.util.Map;
 
 public class HttpResponse {
     private ByteArrayInputStream data;
-    private ProcessorType type;
+    private String contentType;
     private Map<String, List<String>> header;
-    public String context;
+    private String content;
 
     public ByteArrayInputStream getData() {
         return data;
@@ -20,12 +18,12 @@ public class HttpResponse {
         this.data = data;
     }
 
-    public ProcessorType getType() {
-        return type;
+    public String getContentType() {
+        return contentType;
     }
 
-    public void setType(ProcessorType type) {
-        this.type = type;
+    public void setContentType(String type) {
+        this.contentType = type;
     }
 
     public Map<String, List<String>> getHeader() {
@@ -34,5 +32,13 @@ public class HttpResponse {
 
     public void setHeader(Map<String, List<String>> header) {
         this.header = header;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

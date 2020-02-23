@@ -23,15 +23,19 @@ public class DownLoader extends AbstractDownloader{
 
         InputStream stream=connection.getInputStream();
 
-//        byte[] buff=new byte[1024];
-//        int len=0;
-//        StringBuilder stringBuilder=new StringBuilder();
-//        while ((len=stream.read(buff,0, buff.length))!=-1){
-//            stringBuilder.append(new String(buff,0,len));
-//        }
+        String contentType=connection.getContentType();
         HttpResponse response=new HttpResponse();
-//        response.json=stringBuilder.toString();
-        response.setData(toByteInputStream(stream));
+        if(contentType.toLowerCase().startsWith("image")){
+            response.setData(toByteInputStream(stream));
+        }else {
+            StringBuilder content=new StringBuilder();
+            byte[] buff=new byte[1024];
+            int len;
+            while ((len=stream.read(buff,0,buff.length))!=-1)
+                content.append(new String(buff,0,len));
+            response.setContent(content.toString());
+        }
+        response.setContentType(contentType);
         response.setHeader(connection.getHeaderFields());
         stream.close();
         return response;
