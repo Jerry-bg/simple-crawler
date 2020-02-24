@@ -25,9 +25,7 @@ public class Spider implements Runnable{
     }
 
     public void run() {
-        while(true) {
-            if(stop)
-                break;
+        do{
             try {
                 HttpRequest request = Schedule.reqOut();
                 DownLoader downLoader = new DownLoader();
@@ -41,8 +39,10 @@ public class Spider implements Runnable{
                 e.printStackTrace();
             }finally {
                 await();
+                if(stop)
+                    break;
             }
-        }
+        }while (true);
     }
 
     public void stop(){

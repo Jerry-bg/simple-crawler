@@ -2,9 +2,6 @@ package com.kons.downloader;
 
 import com.kons.request.HttpRequest;
 import com.kons.response.HttpResponse;
-import com.kons.schedule.Schedule;
-
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
